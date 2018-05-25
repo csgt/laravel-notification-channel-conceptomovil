@@ -1,0 +1,42 @@
+{
+    "name": "csgt/notification-channel-direkto",
+    "description": "Notification channel Direkto.",
+    "homepage": "https://github.com/csgt/laravel-notification-channels-direkto",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jose Galindo",
+            "email": "jgalindo@com.gt",
+            "homepage": "https://github.com/csgt",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/notifications": "5.6.*",
+        "illuminate/support": "5.6.*",
+        "illuminate/events": "5.6.*",
+        "illuminate/queue": "5.6.*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotificationChannels\\Direkto\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotificationChannels\\Direkto\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
