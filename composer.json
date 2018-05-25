@@ -1,7 +1,7 @@
 {
-    "name": "csgt/notification-channel-direkto",
-    "description": "Notification channel Direkto.",
-    "homepage": "https://github.com/csgt/laravel-notification-channels-direkto",
+    "name": "csgt/notification-channel-conceptomovil",
+    "description": "Notification channel Concepto Movil.",
+    "homepage": "https://github.com/csgt/laravel-notification-channels-conceptomovil",
     "license": "MIT",
     "authors": [
         {
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\Direkto\\": "src"
+            "NotificationChannels\\Conceptomovil\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\Direkto\\Test\\": "tests"
+            "NotificationChannels\\Conceptomovil\\Test\\": "tests"
         }
     },
     "scripts": {
