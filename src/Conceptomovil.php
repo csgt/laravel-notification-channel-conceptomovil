@@ -38,7 +38,7 @@ class Conceptomovil
 
         $params = [
             'msisdn'  => $to,
-            'message' => trim(url_encode($message->content)),
+            'message' => trim(urlencode($message->content)),
             'user'    => $serviceUsername,
         ];
 
