@@ -53,7 +53,7 @@ class ConceptomovilChannel
 
             return $this->conceptomovil->sendMessage($message, $to);
         } catch (Exception $exception) {
-            event(
+            $this->events->dispatch(
                 new NotificationFailed($notifiable, $notification, 'conceptomovil', ['message' => $exception->getMessage()])
             );
         }
