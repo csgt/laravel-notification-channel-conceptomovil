@@ -12,11 +12,11 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
-        "illuminate/notifications": "5.8.*",
-        "illuminate/support": "5.8.*",
-        "illuminate/events": "5.8.*",
-        "illuminate/queue": "5.8.*",
+        "php": ">=8.0.0",
+        "illuminate/notifications": "^5.8.*",
+        "illuminate/support": "^5.8.*",
+        "illuminate/events": "^5.8.*",
+        "illuminate/queue": "^5.8.*",
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
