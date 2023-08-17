@@ -1,7 +1,7 @@
 <?php
 namespace NotificationChannels\Conceptomovil;
 
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class Conceptomovil
 {
@@ -36,32 +36,20 @@ class Conceptomovil
         $serviceDial    = $this->config->getDial();
         $serviceTag     = $this->config->getTag();
 
-        $headers = [
+        $response = Http::withHeaders([
             'Content-Type'  => 'application/json',
             'Authorization' => $serviceToken,
-        ];
+        ])
+            ->post('https://api.broadcastermobile.com/brdcstr-endpoint-web/services/messaging/', [
+                "apiKey"  => $serviceApiKey,
+                "country" => $serviceCountry,
+                "dial"    => $serviceDial,
+                "message" => trim($message->content),
+                "msisdns" => [$to],
+                "tag"     => $serviceTag,
+            ]);
 
-        $params = [
-            'apiKey'  => $serviceApiKey,
-            'country' => $serviceCountry,
-            'dial'    => $serviceDial,
-            'message' => trim($message->content),
-            'msisdns' => [$to],
-            'tag'     => $serviceTag,
-        ];
-
-        $cliente = new Client;
-
-        $response = $cliente->request('POST', $serviceURL, [
-            'headers' => $headers,
-            'body'    => $params,
-            'timeout' => 25,
-            'verify'  => false,
-        ]);
-
-        $html = (string) $response->getBody();
-
-        return json_decode($html);
+        return $response->json();
 
     }
 
