@@ -29,30 +29,32 @@ class Conceptomovil
      */
     public function sendMessage(ConceptomovilMessage $message, $to)
     {
-        $serviceURL      = $this->config->getAccountURL();
-        $serviceUsername = $this->config->getUsername();
-        $servicePassword = $this->config->getPassword();
-
-        $params = [
-            'msisdn'  => $to,
-            'message' => trim($message->content),
-            'user'    => $serviceUsername,
-        ];
+        $serviceURL     = $this->config->getAccountURL();
+        $serviceToken   = $this->config->getToken();
+        $serviceApiKey  = $this->config->getApiKey();
+        $serviceCountry = $this->config->getCountry();
+        $serviceDial    = $this->config->getDial();
+        $serviceTag     = $this->config->getTag();
 
         $headers = [
-            'Content-Type' => 'application/json',
+            'Content-Type'  => 'application/json',
+            'Authorization' => $serviceToken,
+        ];
+
+        $params = [
+            'apiKey'  => $serviceApiKey,
+            'country' => $serviceCountry,
+            'dial'    => $serviceDial,
+            'message' => trim($message->content),
+            'msisdns' => [$to],
+            'tag'     => $serviceTag,
         ];
 
         $cliente = new Client;
 
         $response = $cliente->request('POST', $serviceURL, [
-            'auth'    => [
-                $serviceUsername,
-                $servicePassword,
-                'basic',
-            ],
             'headers' => $headers,
-            'json'    => $params,
+            'body'    => $params,
             'timeout' => 25,
             'verify'  => false,
         ]);

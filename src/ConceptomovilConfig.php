@@ -28,24 +28,28 @@ class ConceptomovilConfig
         return $this->config['url'];
     }
 
-    /**
-     * Get the account username.
-     *
-     * @return string
-     */
-    public function getUsername()
+    public function getToken()
     {
-        return $this->config['username'];
+        return $this->config['token'];
     }
 
-    /**
-     * Get the account passwrod.
-     *
-     * @return string
-     */
-    public function getPassword()
+    public function getApiKey()
     {
-        return $this->config['password'];
+        return $this->config['key'];
     }
 
+    public function getCountry()
+    {
+        return $this->config['country'];
+    }
+
+    public function getDial()
+    {
+        return $this->config['dial'];
+    }
+
+    public function getTag()
+    {
+        return $this->config['tag'];
+    }
 }

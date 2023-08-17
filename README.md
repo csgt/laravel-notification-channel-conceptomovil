@@ -7,20 +7,21 @@
 This package makes it easy to send [Conceptomovil notifications] with Laravel 5.4.
 
 ## Contents
-- [Usage](#usage)
-	- [Available Message methods](#available-message-methods)
-- [Changelog](#changelog)
-- [Testing](#testing)
-- [Security](#security)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
+
+-   [Usage](#usage)
+    -   [Available Message methods](#available-message-methods)
+-   [Changelog](#changelog)
+-   [Testing](#testing)
+-   [Security](#security)
+-   [Contributing](#contributing)
+-   [Credits](#credits)
+-   [License](#license)
 
 ## Installation
 
 You can install the package via composer:
 
-``` bash
+```bash
 composer require csgt/notification-channel-conceptomovil
 ```
 
@@ -42,8 +43,12 @@ Add your Conceptomovil Account SID, Auth Token, and From Number (optional) to yo
 // config/services.php
 ...
 'conceptomovil' => [
-    'account_url'   => env('DIREKTO_ACCOUNT_URL'),
-    'account_token' => env('DIREKTO_AUTH_TOKEN'),
+    'url'     => env('CONCEPTO_MOVIL_URL'),
+    'token'   => env('CONCEPTO_MOVIL_TOKEN'),
+    'apiKey'  => env('CONCEPTO_MOVIL_KEY'),
+    'country' => env('CONCEPTO_MOVIL_COUNTRY'),
+    'dial'    => env('CONCEPTO_MOVIL_DIAL'),
+    'tag'     => env('CONCEPTO_MOVIL_TAG'),
 ],
 ...
 ```
@@ -52,7 +57,7 @@ Add your Conceptomovil Account SID, Auth Token, and From Number (optional) to yo
 
 Now you can use the channel in your `via()` method inside the notification:
 
-``` php
+```php
 use NotificationChannels\Conceptomovil\ConceptomovilChannel;
 use NotificationChannels\Conceptomovil\ConceptomovilMessage;
 use Illuminate\Notifications\Notification;
@@ -85,8 +90,8 @@ public function routeNotificationForConceptomovil()
 
 #### ConceptomovilSmsMessage
 
-- `from('')`: Accepts a phone to use as the notification sender.
-- `content('')`: Accepts a string value for the notification body.
+-   `from('')`: Accepts a phone to use as the notification sender.
+-   `content('')`: Accepts a string value for the notification body.
 
 ## Changelog
 
@@ -102,7 +107,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [CS](https://github.com/csgt)
+-   [CS](https://github.com/csgt)
 
 ## License
 
