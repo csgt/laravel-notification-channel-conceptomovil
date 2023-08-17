@@ -31,7 +31,7 @@ class Conceptomovil
     {
         $serviceURL     = $this->config->getAccountURL();
         $serviceToken   = $this->config->getToken();
-        $serviceApiKey  = $this->config->getApiKey();
+        $serviceApiKey  = $this->config->getKey();
         $serviceCountry = $this->config->getCountry();
         $serviceDial    = $this->config->getDial();
         $serviceTag     = $this->config->getTag();
@@ -40,7 +40,7 @@ class Conceptomovil
             'Content-Type'  => 'application/json',
             'Authorization' => $serviceToken,
         ])
-            ->post('https://api.broadcastermobile.com/brdcstr-endpoint-web/services/messaging/', [
+            ->post($serviceURL, [
                 "apiKey"  => $serviceApiKey,
                 "country" => $serviceCountry,
                 "dial"    => $serviceDial,
@@ -50,7 +50,6 @@ class Conceptomovil
             ]);
 
         return $response->json();
-
     }
 
 }

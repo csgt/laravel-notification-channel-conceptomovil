@@ -33,7 +33,7 @@ class ConceptomovilConfig
         return $this->config['token'];
     }
 
-    public function getApiKey()
+    public function getKey()
     {
         return $this->config['key'];
     }
