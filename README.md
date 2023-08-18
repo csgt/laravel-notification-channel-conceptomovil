@@ -112,3 +112,10 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Versions
+
+| Package Version | Laravel Version |
+| --------------- | --------------- |
+| 5.\*            | 5.4+            |
+| 6.\*            | 9               |
